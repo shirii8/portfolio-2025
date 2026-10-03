@@ -1,7 +1,6 @@
 import React from "react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { ImBehance2 } from "react-icons/im";
-import { FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -66,7 +65,15 @@ export default function Contact() {
             Contact
           </h3>
           <ul className="space-y-2 text-sm text-gray-400 font-mono">
-            <li>Email: pandashriya7@gmail.com</li>
+            <li>
+              Email:{" "}
+              <a
+                href="mailto:pandashriya7@gmail.com"
+                className="hover:text-white transition-colors"
+              >
+                pandashriya7@gmail.com
+              </a>
+            </li>
             <li>Phone: +91 7855003375</li>
             <li>Bhubaneswar, India</li>
           </ul>
@@ -80,16 +87,22 @@ export default function Contact() {
 
           <div className="flex flex-col gap-4  text-gray-400 text-xl">
             <a
-              href="https://www.instagram.com/shriyartss?igsh=OTVkaWRxeHF4Mmk1"
+              href="mailto:pandashriya7@gmail.com"
               className="hover:text-white transition-colors"
             >
-              <FaInstagram />
+              <FaEnvelope />
             </a>
             <a
               href="https://www.linkedin.com/in/shriya-panda-8bb5802a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               className="hover:text-white transition-colors"
             >
               <FaLinkedin />
+            </a>
+            <a
+              href="https://www.instagram.com/shriyartss?igsh=OTVkaWRxeHF4Mmk1"
+              className="hover:text-white transition-colors"
+            >
+              <FaInstagram />
             </a>
             <a
               href="https://www.behance.net/shriyapanda"

@@ -9,7 +9,7 @@ const Navbar = () => {
         <span className="text-4xl font-Digitall letter-spacing-4 ml-4">SHRIYA</span>
       </a>
       <div className="nav-section-elements text-2xl  text-gray-950 font-TurretRoad font-semibold flex justify-between gap-4"
-      whileHover={{y: 2, scale:1.1}}
+      whilehover={{y: 2, scale:1.1}}
       transition={{type: "spring", stiffness:300}}>
         <a className="hover:text-gray-400" href="#Home">[Home]</a>
         <a className="hover:text-gray-400" href="#About">[About]</a>
@@ -36,7 +36,7 @@ const Navbar = () => {
       {/* Hire Me Button */}
       <div className="btn">
         <button className="btn text-2xl border-2 px-4 border-gray-600 rounded-full text-gray-950 items-center font-TurretRoad font-semibold hover:text-gray-200 hover:bg-gray-950 mr-4">
-          <a href="#contact">Hire Me</a>
+          <a href="#Contact">Hire Me</a>
           </button>
       </div>
     </motion.nav>

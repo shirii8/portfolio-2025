@@ -1,21 +1,50 @@
 import React from "react";
 
 const techStack = [
-  { name: "HTML5", category: "Markup", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  // Languages
+  { name: "HTML5", category: "Language", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
   { name: "CSS3", category: "Styling", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
   { name: "JavaScript", category: "Language", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-  { name: "React", category: "Frontend", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Tailwind", category: "Styling", img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" },
   { name: "TypeScript", category: "Language", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-  { name: "VS Code", category: "Editor", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
-  { name: "Figma", category: "Design", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-  { name: "GitHub", category: "Repository", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-  { name: "SQL", category: "Database", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-  { name: "GSAP", category: "Animation", img: "https://raw.githubusercontent.com/greensock/GSAP-Docs/master/src/img/gsap-logo.svg" },
+  { name: "Python", category: "Language", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
   { name: "C", category: "Language", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" },
   { name: "C++", category: "Language", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+  { name: "PostgreSQL", category: "Database", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+
+  // Frontend
+  { name: "React", category: "Frontend", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Next.js", category: "Frontend", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "Tailwind", category: "Styling", img: "https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" },
+
+  // Backend
+  { name: "Node.js", category: "Backend", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Express.js", category: "Backend", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+
+  // Animation
+  { name: "GSAP", category: "Animation", img: "https://raw.githubusercontent.com/greensock/GSAP-Docs/master/src/img/gsap-logo.svg" },
+
+  // Data Science
+  { name: "Pandas", category: "Data Science", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+  { name: "NumPy", category: "Data Science", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+  { name: "Matplotlib", category: "Data Science", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" },
+  { name: "Seaborn", category: "Data Science", img: "https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-lightbg.svg" },
+
+  // Tools
   { name: "Git", category: "VCS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { name: "GitHub", category: "Tools", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+  { name: "VS Code", category: "Tools", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
+  { name: "Figma", category: "Design", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Vercel", category: "Tools", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" },
+  { name: "Postman", category: "Tools", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" },
+  { name: "Jupyter Notebook", category: "Tools", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" },
   { name: "Vite", category: "Build Tool", img: "https://vitejs.dev/logo.svg" },
+
+  // // Core Competencies
+  // { name: "Data Structures & Algorithms", category: "Concepts", img: "https://cdn.jsdelivr.net/npm/lucide-static@1.28.0/icons/binary.svg" },
+  // { name: "REST API Design", category: "Concepts", img: "https://cdn.jsdelivr.net/npm/lucide-static@1.28.0/icons/network.svg" },
+  // { name: "Database Architecture", category: "Concepts", img: "https://cdn.jsdelivr.net/npm/lucide-static@1.28.0/icons/database.svg" },
+  // { name: "Authentication & Authorization", category: "Concepts", img: "https://cdn.jsdelivr.net/npm/lucide-static@1.28.0/icons/shield-check.svg" },
+  // { name: "Full-Stack Development", category: "Concepts", img: "https://cdn.jsdelivr.net/npm/lucide-static@1.28.0/icons/layers.svg" },
 ];
 
 

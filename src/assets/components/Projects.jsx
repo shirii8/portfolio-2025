@@ -6,15 +6,19 @@ import CircularGallery from '../ui/CircularGallery'
 
 
 
-const demoItems = [
-  { link: '#', text: 'Frontend', image: '/images/BerkshireHathaway.png' },
-  { link: '#', text: 'Backend', image: '/images/airbnb.png' },
-  { link: '#', text: 'UI/UX', image: '/images/DesignBattle.png' },
-  { link: '#', text: 'Redesign', image: '/images/grocery.png' },
-   { link: '#', text: 'Redesign', image: '/images/notes.png' },
-   { link: '#', text: 'Redesign', image: '/images/LiquidGlassExperience.jpg' },
-   { link: '#', text: 'Redesign', image: '/images/TeslaCarBuildAssistant.jpg' },
-];
+// const demoItems = [
+//   { link: '#', text: 'Frontend', image: '/images/BerkshireHathaway.png' },
+//   { link: '#', text: 'Backend', image: '/images/airbnb.png' },
+//   { link: '#', text: 'UI/UX', image: '/images/DesignBattle.png' },
+//   { link: '#', text: 'Redesign', image: '/images/grocery.png' },
+//    { link: '#', text: 'Redesign', image: '/images/notes.png' },
+//    { link: '#', text: 'Redesign', image: '/images/LiquidGlassExperience.jpg' },
+//    { link: '#', text: 'Redesign', image: '/images/TeslaCarBuildAssistant.jpg' },
+//    { link: '#', text: 'E-Commerce - LIVE', image: '/images/tessch.png' },
+//     { link: '#', text: 'E-Commerce - LIVE', image: '/images/krutiCoffee.jpg' },
+//      { link: '#', text: 'E-Commerce - LIVE', image: '/images/wsapChatAnalyser.jpg' },
+     
+// ];
 
 
 

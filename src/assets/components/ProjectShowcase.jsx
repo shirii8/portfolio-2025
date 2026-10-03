@@ -2,6 +2,34 @@ import React from 'react';
 
 const projects = [
   {
+    name: "Hertz",
+    image: "https://hertz-6j6rt2cx6-shriyas-projects-239e0065.vercel.app/",
+    description: "A live E-commerce website that I designed, built and handled the entire database handling and backend security for tessch-India;s first modular sneaker brand.",
+    tech: ["Next", "Typescript", "SQL", "Supabase", "Tailwind"],
+    demo: "https://www.tessch.in/"
+  },
+  {
+    name: "Tessch",
+    image: "/images/tessch.png",
+    description: "A live E-commerce website that I designed, built and handled the entire database handling and backend security for tessch-India;s first modular sneaker brand.",
+    tech: ["Next", "Typescript", "SQL", "Supabase", "Tailwind"],
+    demo: "https://www.tessch.in/"
+  },
+  {
+    name: "Kruti-Coffee Website Reimagined",
+    image: "/images/krutiCoffee.jpg",
+    description: "A complete modern overhaul of the Kruti Coffee website. Distinct focus on premium aesthetics, seamless user journeys, and a luxury cafe feel to drive brand engagement.",
+    tech: ["React", "JSON", "MongoDb", "Tailwind"],
+    demo: "https://kruticoffee-website.vercel.app/"
+  },
+  {
+    name: "Whatsapp Chat Analyser",
+    image: "/images/wsapChatAnalyser.jpg",
+    description: "Developed and deployed a full-stack WhatsApp Chat Analyzer using Python, Streamlit, and Pandas. Built a custom regex parser to process unstructured raw chat exports into structured datasets enriched with 8 temporal features for interactive analytics.",
+    tech: ["Streamlit", "Python", "Regex", "Numpy", "Pandas"],
+    demo: " https://whatsapp-chat-analyzer-statistics.streamlit.app/"
+  },
+  {
     name: "Tesla Car Build Assistant",
     image: "/images/TeslaCarBuildAssistant.jpg",
     description: "A portfolio with animated routes, smooth GSAP scenes, and utility-first Tailwind CSS design.",
