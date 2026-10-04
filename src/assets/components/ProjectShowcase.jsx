@@ -3,10 +3,10 @@ import React from 'react';
 const projects = [
   {
     name: "Hertz",
-    image: "https://hertz-6j6rt2cx6-shriyas-projects-239e0065.vercel.app/",
-    description: "A live E-commerce website that I designed, built and handled the entire database handling and backend security for tessch-India;s first modular sneaker brand.",
-    tech: ["Next", "Typescript", "SQL", "Supabase", "Tailwind"],
-    demo: "https://www.tessch.in/"
+    image: "/images/hertz.png",
+    description: "A cross-platform social matching app that connects people through their taste in music and films. Features customisable profile canvases, prompts, communities, matches and real-time chat, with OTP auth and a Supabase backend.",
+    tech: ["React Native", "Expo", "Typescript", "Supabase", "NativeWind", "Sendbird"],
+    demo: "https://hertz-6j6rt2cx6-shriyas-projects-239e0065.vercel.app/"
   },
   {
     name: "Tessch",
