@@ -4,7 +4,7 @@ const Anime = () => {
   const { scrollYProgress } = useScroll();
   
   return (
-    <div className="fixed bottom-8 right-8 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 pointer-events-none">
       {/* Glass Background */}
       <div className="w-16 h-16 rounded-full bg-black/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-xl relative">
         

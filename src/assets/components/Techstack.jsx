@@ -29,6 +29,15 @@ const techStack = [
   { name: "Matplotlib", category: "Data Science", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" },
   { name: "Seaborn", category: "Data Science", img: "https://raw.githubusercontent.com/mwaskom/seaborn/master/doc/_static/logo-mark-lightbg.svg" },
 
+  // AI / ML
+  { name: "Gemini API", category: "AI / ML", img: "https://cdn.simpleicons.org/googlegemini" },
+  { name: "Streamlit", category: "AI / ML", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" },
+  { name: "FastAPI", category: "Backend", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+  { name: "Pydantic", category: "Backend", img: "https://cdn.simpleicons.org/pydantic" },
+  { name: "Supabase", category: "Database", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
+  { name: "Playwright", category: "Testing", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/playwright/playwright-original.svg" },
+  { name: "pytest", category: "Testing", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" },
+
   // Tools
   { name: "Git", category: "VCS", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
   { name: "GitHub", category: "Tools", img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
@@ -50,15 +59,15 @@ const techStack = [
 
 const TechStack = () => {
   return (
-    <div  id='Techstack' className="min-h-screen bg-white text-gray-950 flex items-center justify-center px-6 py-16">
+    <div  id='Techstack' className="min-h-screen bg-white text-gray-950 flex items-center justify-center px-4 sm:px-6 py-16">
       <div className="max-w-6xl w-full">
         {/* Header */}
-        <div className="text-center mb-16 space-y-4 font-TurretRoad">
+        <div className="text-center mb-10 sm:mb-16 space-y-4 font-TurretRoad">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-300 text-gray-600 text-sm mx-auto max-w-max">
             <div className="w-4 h-4 rounded-full bg-gray-500  " />
             <span className="text-center font-extrabold text-bg-gray-950">TECH STACK</span>
           </div>
-          <div className="text-4xl md:text-7xl font-extrabold  bg-gradient-to-r from-black via-gray-500 to-black text-transparent bg-clip-text">
+          <div className="text-4xl sm:text-5xl md:text-7xl font-extrabold  bg-gradient-to-r from-black via-gray-500 to-black text-transparent bg-clip-text">
             Built with Modern Technologies
           </div>
           <p className="text-gray-900 max-w-2xl mx-auto text-base font-black">
@@ -67,20 +76,20 @@ const TechStack = () => {
         </div>
 
         {/* Tech Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 md:grid-cols-8 gap-5">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-5">
           {techStack.map((tech, index) => (
             <div
               key={tech.name}
-              className="group relative bg-white border border-gray-300 rounded-xl p-4 flex flex-col items-center text-center transition-transform duration-500 transform hover:scale-110 hover:z-20 hover:shadow-[0_20px_30px_rgba(0,0,0,0.15),0_10px_15px_rgba(0,0,0,0.1),0_0_25px_rgba(0,0,0,0.2)]"
+              className="group relative bg-white border border-gray-300 rounded-xl p-3 sm:p-4 flex flex-col items-center text-center transition-transform duration-500 transform hover:scale-110 hover:z-20 hover:shadow-[0_20px_30px_rgba(0,0,0,0.15),0_10px_15px_rgba(0,0,0,0.1),0_0_25px_rgba(0,0,0,0.2)]"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               {/* Logo icon */}
-                <div className="p-3 rounded-lg group hover:scale:1.1 transition-colors duration-300 flex items-center justify-center w-20 h-20 select-none">
+                <div className="p-3 rounded-lg group hover:scale:1.1 transition-colors duration-300 flex items-center justify-center w-14 h-14 sm:w-20 sm:h-20 select-none">
                 <img src={tech.img} alt={tech.name} className="w-8 h-8 object-contain" />
                 </div>
 
-              <div className="mt-4">
-                <h3 className="font-bold text-gray-950 text:3xl font-TurretRoad">{tech.name}</h3>
+              <div className="mt-2 sm:mt-4 min-w-0 w-full">
+                <h3 className="font-bold text-sm sm:text-base text-gray-950 font-TurretRoad break-words">{tech.name}</h3>
                 <p className="text-xs text-gray-400 mt-1 font-normal">{tech.category}</p>
               </div>
             </div>

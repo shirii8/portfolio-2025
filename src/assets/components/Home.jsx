@@ -1,14 +1,13 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Hero from "./Hero";
 import SkillsCarousel from "./SkillsCarousel";
 
 
 const Home = () => {
   return (
-    <div id="Home" className="Home flex-col w-screen h-screen bg-white">
+    <div id="Home" className="Home flex flex-col w-full min-h-screen bg-white">
       
-      <Navbar />
+      {/* Spacer for the fixed navbar rendered in App */}
+      <div className="h-[72px] shrink-0" />
       <SkillsCarousel/>
     </div>
   );

@@ -28,7 +28,7 @@ const About = () => {
              <img src={aboutImage} alt="" className='h-5 w-5'/>
           </div>
           <div className="max-w-xs text-2xl text-gray-950 font-bold font-TurretRoad">
-            I’m a sophomore at IIT Bhubaneswar, passionate about blending design and logic to craft animated, interactive websites. What started as a love for visuals grew into a drive to build seamless digital experiences. Current learning: Backend.
+            Full-stack developer, currently learning AI/ML to build even more interactive and creative platforms.
           </div>
         </div>
 

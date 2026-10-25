@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  /* keep anchored sections clear of the fixed navbar */
+  scroll-padding-top: 72px;
+}
+
 @font-face {
   font-family: 'Digitall';
   src: url('/Fonts/01 Digitall Regular.ttf') format('truetype');

@@ -72,7 +72,45 @@ export default function ServicesLayout() {
   const [active, setActive] = useState(null);
 
   return (
-    <div id="Services" className="flex w-full min-h-[82vh] bg-black font-TurretRoad text-white border-t border-gray-700">
+    <div id="Services" className="w-full md:min-h-[82vh] bg-black font-TurretRoad text-white border-t border-gray-700">
+      {/* Small screens: tap-to-expand list instead of hover columns */}
+      <div className="md:hidden flex flex-col">
+        {services.map((service) => {
+          const open = active === service.id;
+          return (
+            <div key={service.id} className="border-b border-gray-700">
+              <button
+                type="button"
+                onClick={() => setActive(open ? null : service.id)}
+                aria-expanded={open}
+                className="w-full flex items-center justify-between gap-4 px-5 py-6 text-left"
+              >
+                <span className="flex items-baseline gap-3">
+                  <span className="text-xs font-bold tracking-widest text-gray-500">{service.id}</span>
+                  <span className="text-2xl font-extrabold uppercase tracking-widest text-gray-200">{service.title}</span>
+                </span>
+                <span className={`text-2xl transition-transform duration-300 ${open ? "rotate-45" : ""}`}>+</span>
+              </button>
+              <div className={`grid transition-all duration-500 ease-in-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                <div className="overflow-hidden">
+                  <div className="mx-5 mb-6 bg-white text-black rounded-2xl p-5">
+                    <ul className="text-base leading-relaxed text-gray-600 font-mono tracking-wide">
+                      {service.list.map((item) => (
+                        <li key={item}>/ {item}</li>
+                      ))}
+                    </ul>
+                    <p className="mt-3 text-[12px] leading-relaxed text-gray-600 font-mono tracking-wide">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="hidden md:flex w-full">
       {services.map((service) => (
         <div
           key={service.id}
@@ -99,7 +137,7 @@ export default function ServicesLayout() {
           {/* Floating card on hover */}
           {active === service.id && (
             <div
-              className="absolute bg-white text-black rounded-2xl shadow-2xl p-6 w-[320px] h-[420px] flex flex-col justify-between transition-all duration-700"
+              className="absolute bg-white text-black rounded-2xl shadow-2xl p-6 w-[min(320px,90%)] h-[420px] flex flex-col justify-between transition-all duration-700"
               style={{
                 transform: "translateY(0)",
               }}
@@ -115,7 +153,7 @@ export default function ServicesLayout() {
 
               <div className="flex flex-col gap-2 overflow-hidden">
                 {service.list && (
-                  <ul className="text-[20px] leading-relaxed text-gray-600 font-mono tracking-wide">
+                  <ul className="text-base lg:text-[20px] leading-relaxed text-gray-600 font-mono tracking-wide">
                     {service.list.map((item) => (
                       <li key={item}>/ {item}</li>
                     ))}
@@ -131,6 +169,7 @@ export default function ServicesLayout() {
           )}
         </div>
       ))}
+      </div>
     </div>
   );
 }

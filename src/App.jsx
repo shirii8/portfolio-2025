@@ -17,12 +17,10 @@ const App = () => {
       <div className='fixed top-0 z-30 w-full'>
       <Navbar/>
       </div>
-      <div className="fixed bottom-2 right-1/2 -translate-x-3/2 z-50 w-full max-w-md p-4">
-         <Anime/>
-      </div>
+      <Anime/>
       <Home/>
-       <div className='w-screen flex flex-col justify-center items-center min-w-screen bg-white'>
-      <div className='mt-1'><Marquee/></div>
+       <div className='w-full flex flex-col justify-center items-center bg-white'>
+      <div className='mt-1 w-full'><Marquee/></div>
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       <Hero/>
      </div>

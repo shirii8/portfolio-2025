@@ -2,6 +2,7 @@
 import { motion } from "motion/react";
 
 const Skills = [
+  ".AI / ML",
   ".FRONTEND",
   ".BACKEND",
   ".ANIMATION",
@@ -34,7 +35,7 @@ const Marquee = () => (
         {[...Skills, ...Skills].map((skill, index) => (
           <h1
             key={index}
-            className="text-[4vw] leading-none font-TurretRoad font-bold uppercase"
+            className="text-[max(1.75rem,4vw)] leading-none font-TurretRoad font-bold uppercase"
           >
             {skill}
           </h1>
