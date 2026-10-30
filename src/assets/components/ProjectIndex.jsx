@@ -1,5 +1,17 @@
 import React, { useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'motion/react';
+import TypeLabel from '../motion/TypeLabel';
+import { EASE_OUT, IN_VIEW } from '../motion/presets';
+
+const LIST = { show: { transition: { staggerChildren: 0.06 } } };
+const ROW = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE_OUT } },
+};
+const RULE = {
+  hidden: { scaleX: 0 },
+  show: { scaleX: 1, transition: { duration: 0.9, ease: EASE_OUT } },
+};
 
 // Numbered list of every project. On hover-capable screens a preview of the
 // project follows the cursor; each row jumps to that project's card below.
@@ -22,23 +34,35 @@ const ProjectIndex = ({ projects }) => {
 
   return (
     <div className="w-full max-w-6xl mx-auto">
-      <div className="flex items-end justify-between gap-4 pb-4 border-b-2 border-gray-950 font-TurretRoad">
-        <span className="text-sm sm:text-base font-extrabold tracking-widest">[INDEX]</span>
+      <div className="relative flex items-end justify-between gap-4 pb-4 font-TurretRoad">
+        <TypeLabel text="[INDEX]" className="text-sm sm:text-base font-extrabold tracking-widest" />
+        <motion.span
+          aria-hidden
+          className="absolute bottom-0 left-0 right-0 h-[2px] bg-gray-950 origin-left"
+          initial="hidden"
+          whileInView="show"
+          viewport={IN_VIEW}
+          variants={RULE}
+        />
         <span className="text-sm sm:text-base font-extrabold tracking-widest text-gray-500">
           {String(projects.length).padStart(2, '0')} PROJECTS
         </span>
       </div>
 
-      <ul
+      <motion.ul
         ref={listRef}
         onMouseMove={handleMove}
         onMouseLeave={() => setActive(null)}
         className="relative"
+        initial="hidden"
+        whileInView="show"
+        viewport={IN_VIEW}
+        variants={LIST}
       >
         {projects.map((project, idx) => {
           const dimmed = active !== null && active !== idx;
           return (
-            <li key={project.slug} className="border-b border-gray-200">
+            <motion.li key={project.slug} variants={ROW} className="border-b border-gray-200">
               <a
                 href={`#${project.slug}`}
                 onMouseEnter={() => setActive(idx)}
@@ -69,7 +93,7 @@ const ProjectIndex = ({ projects }) => {
                   </span>
                 </span>
               </a>
-            </li>
+            </motion.li>
           );
         })}
 
@@ -99,7 +123,7 @@ const ProjectIndex = ({ projects }) => {
             </motion.div>
           )}
         </AnimatePresence>
-      </ul>
+      </motion.ul>
     </div>
   );
 };

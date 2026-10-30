@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { EASE_OUT, IN_VIEW } from '../motion/presets';
 
 export const projects = [
   {
@@ -102,13 +104,25 @@ export const projects = [
   slug: `project-${project.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
 }));
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
   const [expanded, setExpanded] = useState(false);
   const isLong = project.description.length > 220;
+  const ref = useRef(null);
+  // The screenshot drifts inside its frame as the card passes through view.
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
-    <article
+    <motion.article
+      ref={ref}
       id={project.slug}
+      initial="hidden"
+      whileInView="show"
+      viewport={IN_VIEW}
+      variants={{
+        hidden: { opacity: 0, y: 48 },
+        show: { opacity: 1, y: 0, transition: { duration: 0.9, delay: (index % 2) * 0.12, ease: EASE_OUT } },
+      }}
       className="group scroll-mt-28 bg-white border border-gray-200 rounded-2xl flex flex-col overflow-hidden shadow-sm transition-all duration-500 md:hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(35,35,50,0.13),0_10px_15px_rgba(60,60,80,0.10)]"
     >
       <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100">
@@ -125,13 +139,22 @@ const ProjectCard = ({ project }) => {
             {project.number}
           </span>
         </span>
-        <img
-          src={project.image}
-          alt={project.name}
-          loading="lazy"
-          className="object-cover object-top w-full h-full transition-transform duration-700 group-hover:scale-105"
-          draggable="false"
-        />
+        <motion.div
+          className="absolute inset-0"
+          variants={{
+            hidden: { clipPath: "inset(0% 0% 100% 0%)" },
+            show: { clipPath: "inset(0% 0% 0% 0%)", transition: { duration: 1.1, delay: 0.15 + (index % 2) * 0.12, ease: EASE_OUT } },
+          }}
+        >
+          <motion.img
+            src={project.image}
+            alt={project.name}
+            loading="lazy"
+            style={{ y: imageY }}
+            className="object-cover object-top w-full h-[112%] -mt-[6%] transition-transform duration-700 group-hover:scale-105"
+            draggable="false"
+          />
+        </motion.div>
       </div>
 
       <div className="flex flex-col p-5 sm:p-6 flex-1">
@@ -178,14 +201,14 @@ const ProjectCard = ({ project }) => {
           </p>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 };
 
 const ProjectsGrid = () => (
   <section className="w-full max-w-6xl mx-auto py-12 sm:py-20 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
-    {projects.map(project => (
-      <ProjectCard key={project.slug} project={project} />
+    {projects.map((project, idx) => (
+      <ProjectCard key={project.slug} project={project} index={idx} />
     ))}
   </section>
 );

@@ -1,36 +1,48 @@
-import { motion, useScroll } from 'framer-motion';
+import { useState } from 'react';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'motion/react';
+import { scrollToTarget } from '../motion/SmoothScroll';
 
+// Reading-progress ring that doubles as a back-to-top button. Appears once
+// the visitor has scrolled past the first screen.
 const Anime = () => {
   const { scrollYProgress } = useScroll();
-  
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
+  const [percent, setPercent] = useState(0);
+
+  useMotionValueEvent(scrollYProgress, 'change', (v) => setPercent(Math.round(v * 100)));
+
   return (
-    <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 pointer-events-none">
-      {/* Glass Background */}
-      <div className="w-16 h-16 rounded-full bg-black/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-xl relative">
-        
-        {/* Background Circle (Track) */}
-        <svg className="w-12 h-12 -rotate-90 transform">
-          <circle
-            cx="24" cy="24" r="20"
-            stroke="currentColor" strokeWidth="4" fill="transparent"
-            className="text-white/10"
-          />
-          {/* Foreground Circle (Progress) */}
-          <motion.circle
-            cx="24" cy="24" r="20"
-            stroke="white" strokeWidth="4" fill="transparent"
-            strokeDasharray="125.6" // 2 * pi * r (20)
-            strokeLinecap="round"
-            style={{ pathLength: scrollYProgress }}
-          />
-        </svg>
-        
-        {/* Percentage Text inside */}
-        <span className="absolute text-[10px] font-bold text-white">
-           Scroll
-        </span>
-      </div>
-    </div>
+    <AnimatePresence>
+      {percent > 4 && (
+        <motion.button
+          type="button"
+          onClick={() => scrollToTarget(0)}
+          aria-label="Back to top"
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.6 }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.94 }}
+          className="group fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white border border-gray-200 shadow-[0_10px_30px_rgba(3,7,18,0.12)] flex items-center justify-center"
+        >
+          <svg viewBox="0 0 48 48" className="absolute inset-0 w-full h-full -rotate-90">
+            <circle cx="24" cy="24" r="20" stroke="#e5e7eb" strokeWidth="2.5" fill="transparent" />
+            <motion.circle
+              cx="24" cy="24" r="20"
+              stroke="#030712" strokeWidth="2.5" fill="transparent"
+              strokeLinecap="round"
+              style={{ pathLength: progress }}
+            />
+          </svg>
+          <span className="relative font-TurretRoad text-[11px] sm:text-xs font-extrabold text-gray-950 tabular-nums transition-opacity duration-200 group-hover:opacity-0">
+            {percent}%
+          </span>
+          <span aria-hidden className="absolute font-TurretRoad text-lg font-extrabold text-gray-950 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+            ↑
+          </span>
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 };
 

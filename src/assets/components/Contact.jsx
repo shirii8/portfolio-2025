@@ -1,6 +1,9 @@
 import React from "react";
 import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { ImBehance2 } from "react-icons/im";
+import TypeLabel from "../motion/TypeLabel";
+import TextReveal from "../motion/TextReveal";
+import Reveal from "../motion/Reveal";
 
 export default function Contact() {
   return (
@@ -8,6 +11,41 @@ export default function Contact() {
       id="Contact"
       className="w-full bg-black text-gray-300 border-t border-gray-700 font-TurretRoad"
     >
+      {/* Closing call to action */}
+      <div className="max-w-7xl mx-auto px-6 pt-20 sm:pt-28 pb-16 sm:pb-24 border-b border-gray-800">
+        <div className="flex items-center justify-between font-extrabold tracking-widest text-xs sm:text-sm text-gray-500 border-b border-gray-800 pb-3">
+          <TypeLabel text="[06] CONTACT" className="text-white" />
+          <span>BHUBANESWAR, IN</span>
+        </div>
+        <h2 className="mt-10 text-5xl sm:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05]">
+          <TextReveal
+            segments={[
+              { text: "Have an idea?", breakAfter: true },
+              { text: "Let's" },
+              { text: "build", mark: "swash", markColor: "#ffffff" },
+              { text: "it." },
+            ]}
+          />
+        </h2>
+        <Reveal delay={0.4} className="mt-12 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+          <a
+            href="mailto:pandashriya7@gmail.com"
+            className="group inline-flex items-center gap-4 self-start rounded-full bg-white text-black pl-7 pr-2 py-2 text-lg sm:text-2xl font-extrabold transition-transform duration-300 hover:scale-[1.03]"
+          >
+            Start a conversation
+            <span className="h-11 w-11 sm:h-12 sm:w-12 rounded-full bg-black text-white flex items-center justify-center text-xl transition-transform duration-300 group-hover:rotate-45">
+              ↗
+            </span>
+          </a>
+          <a
+            href="mailto:pandashriya7@gmail.com"
+            className="relative self-start text-base sm:text-xl text-gray-400 hover:text-white transition-colors after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-px after:bg-white after:origin-right after:scale-x-0 after:transition-transform after:duration-300 hover:after:origin-left hover:after:scale-x-100"
+          >
+            pandashriya7@gmail.com
+          </a>
+        </Reveal>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Brand */}
         <div className="col-span-1 md:col-span-1">

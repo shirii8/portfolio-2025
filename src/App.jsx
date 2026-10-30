@@ -9,14 +9,16 @@ import Marquee from './assets/components/Marquee';
 import Hero from './assets/components/Hero';
 import Anime from './assets/components/Anime';
 import Navbar from './assets/components/Navbar';
+import Manifesto from './assets/components/Manifesto';
+import AgenticAI from './assets/components/AgenticAI';
+import SmoothScroll from './assets/motion/SmoothScroll';
 
 const App = () => {
   return (
     
     <div className='overflow-x-hidden'>
-      <div className='fixed top-0 z-30 w-full'>
+      <SmoothScroll/>
       <Navbar/>
-      </div>
       <Anime/>
       <Home/>
        <div className='w-full flex flex-col justify-center items-center bg-white'>
@@ -24,6 +26,8 @@ const App = () => {
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       <Hero/>
      </div>
+      <Manifesto/>
+      <AgenticAI/>
       <Techstack/>
       <Projects/>
       {/* <About/> */}
