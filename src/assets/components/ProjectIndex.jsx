@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'motion/react';
 import TypeLabel from '../motion/TypeLabel';
+import useCanHover from '../motion/useCanHover';
 import { EASE_OUT, IN_VIEW } from '../motion/presets';
 
 const LIST = { show: { transition: { staggerChildren: 0.06 } } };
@@ -18,6 +19,8 @@ const RULE = {
 const ProjectIndex = ({ projects }) => {
   const listRef = useRef(null);
   const [active, setActive] = useState(null);
+  // Touch screens fake a hover on tap, which would pin the preview open.
+  const canHover = useCanHover();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -65,7 +68,7 @@ const ProjectIndex = ({ projects }) => {
             <motion.li key={project.slug} variants={ROW} className="border-b border-gray-200">
               <a
                 href={`#${project.slug}`}
-                onMouseEnter={() => setActive(idx)}
+                onMouseEnter={canHover ? () => setActive(idx) : undefined}
                 className={`group grid grid-cols-[2.5rem_1fr_auto] sm:grid-cols-[4rem_1fr_auto] items-center gap-3 sm:gap-6 py-4 sm:py-6 font-TurretRoad transition-opacity duration-300 ${dimmed ? 'md:opacity-30' : 'opacity-100'}`}
               >
                 <span className="text-sm sm:text-lg font-bold text-gray-400">{project.number}</span>

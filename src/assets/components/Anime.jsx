@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'motion/react';
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'motion/react';
 import { scrollToTarget } from '../motion/SmoothScroll';
 
 // Reading-progress ring that doubles as a back-to-top button. Appears once
@@ -7,13 +7,16 @@ import { scrollToTarget } from '../motion/SmoothScroll';
 const Anime = () => {
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30, restDelta: 0.001 });
-  const [percent, setPercent] = useState(0);
+  // The number updates straight from the motion value, so scrolling never
+  // re-renders React; state only flips when the badge shows or hides.
+  const percentText = useTransform(scrollYProgress, (v) => `${Math.round(v * 100)}%`);
+  const [visible, setVisible] = useState(false);
 
-  useMotionValueEvent(scrollYProgress, 'change', (v) => setPercent(Math.round(v * 100)));
+  useMotionValueEvent(scrollYProgress, 'change', (v) => setVisible(v > 0.04));
 
   return (
     <AnimatePresence>
-      {percent > 4 && (
+      {visible && (
         <motion.button
           type="button"
           onClick={() => scrollToTarget(0)}
@@ -34,9 +37,9 @@ const Anime = () => {
               style={{ pathLength: progress }}
             />
           </svg>
-          <span className="relative font-TurretRoad text-[11px] sm:text-xs font-extrabold text-gray-950 tabular-nums transition-opacity duration-200 group-hover:opacity-0">
-            {percent}%
-          </span>
+          <motion.span className="relative font-TurretRoad text-[11px] sm:text-xs font-extrabold text-gray-950 tabular-nums transition-opacity duration-200 group-hover:opacity-0">
+            {percentText}
+          </motion.span>
           <span aria-hidden className="absolute font-TurretRoad text-lg font-extrabold text-gray-950 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             ↑
           </span>

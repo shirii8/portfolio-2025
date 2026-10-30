@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
+import TechTile from "./TechTile";
+import useCanHover from "../motion/useCanHover";
 import TypeLabel from "../motion/TypeLabel";
 import TextReveal from "../motion/TextReveal";
 import Reveal from "../motion/Reveal";
@@ -69,6 +71,9 @@ const TILE = {
 };
 
 const TechStack = () => {
+  const canHover = useCanHover();
+  const [hovered, setHovered] = useState(null);
+
   return (
     <section id="Techstack" className="min-h-screen bg-white text-gray-950 flex items-center justify-center px-4 sm:px-6 py-16 sm:py-24">
       <div className="max-w-6xl w-full">
@@ -100,28 +105,17 @@ const TechStack = () => {
           whileInView="show"
           viewport={IN_VIEW}
           variants={GRID}
+          onMouseLeave={() => setHovered(null)}
         >
-          {techStack.map((tech) => (
-            <motion.li
+          {techStack.map((tech, i) => (
+            <TechTile
               key={tech.name}
+              tech={tech}
               variants={TILE}
-              className="group relative bg-white border border-gray-200 rounded-xl p-3 sm:p-4 flex flex-col items-center text-center transition-all duration-300 hover:-translate-y-1 hover:border-gray-950 hover:shadow-[0_16px_30px_rgba(3,7,18,0.12)]"
-            >
-              {/* Logo icon */}
-              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 select-none">
-                <img
-                  src={tech.img}
-                  alt=""
-                  loading="lazy"
-                  className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="mt-2 min-w-0 w-full">
-                <h3 className="font-bold text-sm sm:text-base text-gray-950 font-TurretRoad break-words">{tech.name}</h3>
-                <p className="text-xs text-gray-400 mt-1 font-normal">{tech.category}</p>
-              </div>
-            </motion.li>
+              canHover={canHover}
+              dimmed={hovered !== null && hovered !== i}
+              onHover={() => setHovered(i)}
+            />
           ))}
         </motion.ul>
 

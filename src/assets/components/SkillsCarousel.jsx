@@ -72,7 +72,7 @@ export default function ServicesLayout() {
   const [active, setActive] = useState(null);
 
   return (
-    <div id="Services" className="w-full md:min-h-[82vh] bg-black font-TurretRoad text-white border-t border-gray-700">
+    <div id="Services" className="w-full md:flex-1 md:flex md:flex-col bg-black font-TurretRoad text-white border-t border-gray-700">
       {/* Small screens: tap-to-expand list instead of hover columns */}
       <div className="md:hidden flex flex-col">
         {services.map((service) => {
@@ -110,16 +110,15 @@ export default function ServicesLayout() {
         })}
       </div>
 
-      <div className="hidden md:flex w-full">
+      <div className="hidden md:flex flex-1 w-full">
       {services.map((service) => (
         <div
           key={service.id}
           onMouseEnter={() => setActive(service.id)}
           onMouseLeave={() => setActive(null)}
-          className={`relative flex items-center justify-center border-r border-gray-700 transition-all duration-700 ease-in-out
+          className={`relative min-h-[480px] flex items-center justify-center border-r border-gray-700 transition-all duration-700 ease-in-out
             ${active === service.id ? "flex-[2]" : "flex-1"}
           `}
-          style={{ height: "500px" }}
         >
           {/* Vertical title (default view) */}
           <h2

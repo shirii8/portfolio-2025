@@ -30,7 +30,7 @@ const Hero = () => {
         <span>BHUBANESWAR, IN</span>
       </div>
 
-      <h1 className="mt-10 sm:mt-14 text-gray-950 text-5xl sm:text-7xl lg:text-9xl font-bold font-TurretRoad text-center leading-[1.05]">
+      <h1 className="mt-10 sm:mt-14 text-gray-950 text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-bold font-TurretRoad text-center leading-[1.05]">
         <TextReveal
           segments={[
             { text: "Hello, I'm" },
@@ -42,7 +42,7 @@ const Hero = () => {
 
       <div className="mt-12 sm:mt-16 flex flex-col md:flex-row justify-between items-center w-full max-w-5xl gap-10 md:gap-12">
         {/* Left text */}
-        <Reveal className="order-2 md:order-1 flex flex-row md:flex-col items-center md:items-start gap-3 font-extrabold text-2xl sm:text-3xl lg:text-4xl text-gray-950 font-TurretRoad md:max-w-xs text-center md:text-left">
+        <Reveal className="order-2 md:order-1 flex flex-row md:flex-col items-center md:items-start gap-3 font-extrabold text-2xl sm:text-3xl xl:text-4xl text-gray-950 font-TurretRoad md:max-w-xs text-center md:text-left">
           <span>DEVELOPER ESTD.2024</span>
           <a
             href="#Projects"
@@ -76,7 +76,7 @@ const Hero = () => {
             whileInView={{ clipPath: "circle(50% at 50% 50%)" }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="w-60 h-60 sm:w-72 sm:h-72 lg:w-[26rem] lg:h-[26rem] rounded-full overflow-hidden"
+            className="w-60 h-60 sm:w-72 sm:h-72 lg:w-[22rem] lg:h-[22rem] xl:w-[26rem] xl:h-[26rem] rounded-full overflow-hidden"
           >
             <motion.img
               src={MEImage}
@@ -88,7 +88,7 @@ const Hero = () => {
         </div>
 
         {/* Right text */}
-        <div className="order-3 font-extrabold text-2xl sm:text-3xl lg:text-4xl text-gray-950 font-TurretRoad max-w-md text-center md:text-right leading-snug">
+        <div className="order-3 font-extrabold text-2xl sm:text-3xl xl:text-4xl text-gray-950 font-TurretRoad max-w-md text-center md:text-right leading-snug">
           <TextReveal
             segments={[
               { text: "Full-stack developer, currently learning" },
